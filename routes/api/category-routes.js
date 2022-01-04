@@ -16,6 +16,23 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
+  router.get('/:id', (req, res) => {
+    User.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(dbUserData => {
+      if (!dbUserData) {
+        res.status(404).json({ message: 'No user found with this id' });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+  });
   // find one category by its `id` value
   // be sure to include its associated Products
 });
