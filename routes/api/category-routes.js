@@ -1,6 +1,6 @@
 const router = require('express').Router();
-//const res = require('express/lib/response');
-const { UPSERT } = require('sequelize/dist/lib/query-types');
+const res = require('express/lib/response');
+//const { UPSERT } = require('sequelize/dist/lib/query-types');
 const { Category, Product } = require('../../models');
 
 // The `/api/categories` endpoint
