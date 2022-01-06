@@ -42,7 +42,7 @@ router.post('/', (req, res) => {
     category_name: req.body.Category_name,
     id: req.body.id
   })
-  .then(dbCategoryData => res.json(dbCategoryData))
+  .then(dbData => res.json(dbCategoryData))
   .catch(err => {
     console.log(err);
     res.status(500).json(err);
@@ -62,7 +62,13 @@ router.put('/:id', (req, res) => {
         },
       }
     );
-    if()
+    if(!data) {
+      res.status(404).json({ message: "Category not found"});
+      return;
+    }
+    res.status(200).json(data);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
