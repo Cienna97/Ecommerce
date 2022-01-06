@@ -14,12 +14,33 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  // find a single tag by its `id`
-  // be sure to include its associated Product data
+  Tag.findOne({
+    where: {
+      id: req.params.id
+    },
+    include: [Product],
+  })
+    .then(tags => {
+      if (!tags) {
+        res.status(404).json({ message: 'No tag found with this id' });
+        return;
+      }
+      res.json(tags);
+    })
+    .catch(err => { res.status(500).json(err) })
+  
 });
 
 router.post('/', (req, res) => {
-  // create a new tag
+  Tag.create({
+    tag_name: req.body.tag_name
+  })
+    .then(tags => res.json(tags))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+
 });
 
 router.put('/:id', (req, res) => {
