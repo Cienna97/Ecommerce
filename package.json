@@ -6,9 +6,6 @@
     "mysql2": "^2.3.3",
     "sequelize": "^7.0.0-alpha.4"
   },
-  "scripts": {
-    "start": "node server.js"
-  },
   "name": "ecommerce",
   "description": "# User Story",
   "version": "1.0.0",
@@ -23,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Cienna97/Ecommerce/issues"
   },
-  "homepage": "https://github.com/Cienna97/Ecommerce#readme"
+  "homepage": "https://github.com/Cienna97/Ecommerce#readme",
+  "scripts": {
+    "start": "node server.js"
+  }
 }
