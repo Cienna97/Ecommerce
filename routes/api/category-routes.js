@@ -36,7 +36,7 @@ router.get('/', (req, res) => {
   // be sure to include its associated Products
 });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   // create a new category
   Category.create({
     category_name: req.body.Category_name,
@@ -49,7 +49,7 @@ router.post('/', (req, res) => {
   });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const data = await Category.update(
       {
@@ -72,21 +72,24 @@ router.put('/:id', (req, res) => {
   }
 });
 
-router.delete('/:id', (req, res) => {
-  try {
-    const data = await Category.delete({
+router.delete('/:id', async (req, res) => {
+    const data = await Category.destroy({
       where: {
         id: req.params.id
       }
+      
+    })
+    .then(dbCategoryData => {
+      if (!dbCategoryData) {
+        res.status(404).json({ message: 'No user found with this id' });
+        return;
+      }
+      res.json(dbCategoryData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
     });
-    if(!data) {
-      res.status(404).json({ message: "error! Nothing has been deleted"});
-      return;
-    }
-    res.status(200).json(data);
-  } catch (err) {
-    res.status(500).json(err);
-  }
 });
 
 module.exports = router;
