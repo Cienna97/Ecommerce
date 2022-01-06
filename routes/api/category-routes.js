@@ -14,6 +14,21 @@ router.get('/', (req, res) => {
 });
 
   router.get('/:id', (req, res) => {
+    Category.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [Product],
+    })
+    .then(categories => {
+      if (!categories) {
+        res.status(404).json({ message: 'No category found with this id' });
+        return;
+      }
+      res.json(categories);
+    })
+    .catch(err => { res.status(500).json(err) })
+});
  
 
   });
