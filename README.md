@@ -31,10 +31,27 @@ Github: https://github.com/Cienna97/Ecommerce.git
 
 Walkthrough Video: 
 
+GET routes that return all categories, all products, and all tags.
+
+https://watch.screencastify.com/v/i5fD5qWuhDrVUDqvjh52
+
+GET routes that return a single category, single product, and a single tag
+
+https://watch.screencastify.com/v/NlOrAwlGx0bW7DVemQvy
+
+POST, PUT, and DELETE values for categories, products, and tags:
+
+https://watch.screencastify.com/v/qhUTP0MpWp9stll8IOT9
+
+
 Published Site: https://cienna97.github.io/Ecommerce/
 
 
 # Screenshot 
 
-# Future Development 
+In screenshot folder
+
+# Future Development: 
+
+Having issues running POST, PUT, and DELETE routes for products, try and correct that in the future
 
