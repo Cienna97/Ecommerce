@@ -23,7 +23,7 @@ THEN I am able to successfully create, update, and delete data in my database
 
 # Usage 
 
-This application 
+This application allows e-commerce compaines to have the lastest technologies for their website, so they are able to compete with other e-commerce compaines.
 
 # Links 
 
