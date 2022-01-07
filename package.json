@@ -23,6 +23,10 @@
   },
   "homepage": "https://github.com/Cienna97/Ecommerce#readme",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node seeds/index.js"
   }
-}
+
+
+  }
+
